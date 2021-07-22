@@ -1,46 +1,35 @@
-# ---- YOUR APP STARTS HERE ----
-# -- Import section --
-from flask import Flask
+from typing import Collection
+from flask import Flask, url_for
 from flask import render_template
 from flask import request
-# from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo
 
-
-# -- Initialization section --
 app = Flask(__name__)
 
-events = [
-        {"event":"First Day of Classes", "date":"2019-08-21"},
-        {"event":"Winter Break", "date":"2019-12-20"},
-        {"event":"Finals Begin", "date":"2019-12-01"}
-    ]
-
-# name of database
-# app.config['MONGO_DBNAME'] = 'database-name'
-
-# URI of database
-# app.config['MONGO_URI'] = 'mongo-uri'
-
-# mongo = PyMongo(app)
-
-# -- Routes section --
-# INDEX
+app.config['MONGO_DBNAME'] = 'Collride'
+app.config['MONGO_URI'] = 'mongodb+srv://admin:QBD7PhUMLLi59Fx9@cluster0.jtwfi.mongodb.net/Collride?retryWrites=true&w=majority'
+mongo = PyMongo(app)
 
 @app.route('/')
 @app.route('/index')
 
 def index():
-    return render_template('index.html', events = events)
+    collection = mongo.db.userinfo
+    data = list(collection.find({}))
+    return render_template('base.html', data = data)
 
+@app.route('/questions')
+def questions():
+   return render_template('questions.html')
 
-# CONNECT TO DB, ADD DATA
+@app.route('/trips')
+def trips():
+   return render_template('trips.html')
 
-@app.route('/add')
+@app.route('/login')
+def login():
+   return render_template('login.html')
 
-def add():
-    # connect to the database
-
-    # insert new data
-
-    # return a message to the user
-    return ""
+@app.route('/signup')
+def signup():
+   return render_template('signup.html')

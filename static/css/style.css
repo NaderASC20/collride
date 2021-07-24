@@ -3,3 +3,8 @@
 body {
   font-family: 'Lato';
 }
+
+.container {
+  max-width: 1024px;
+  padding: 40px;
+}

@@ -20,8 +20,11 @@ def index():
 
 @app.route('/questions')
 def questions():
-   data = session['data']
-   return render_template('questions.html', data = data)
+   if (session.get('username')):
+      username = session['username']
+      return render_template('questions.html', username = username)
+   else:
+      return redirect(url_for('login'))
 
 @app.route('/trips')
 def trips():
@@ -41,7 +44,7 @@ def login():
          return redirect(url_for("signup"))
       user = collection.find_one({"username": data['username']})
       if (user['password'] == data['password']):
-         session['data'] = data
+         session['username'] = data['username']
          return redirect(url_for('questions'))
       else:
          return render_template('login.html', error = True)

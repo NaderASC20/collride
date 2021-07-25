@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+
+:root /* set a variable we can use latter */ {
+  --navbar-foot-color: #006d77;
+  --writing-color: #edf6f9;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body and Root Stuff */
+body {
+  font-family: "Lato";
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.container {
+  max-width: 1200px;
+  height: 100%;
+  padding: 0 40px;
+  overflow: auto;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+.navbar {
+  background-color: #006d77;
+  color: #edf6f9;
+  height: 70px;
+}
+
+.navbar .flex {
+  justify-content: space-between;
+}
+
+.navbar a {
+  padding: 10px;
+  margin: 0 10px;
+  color: #edf6f9;
+}
+
+a:hover {
+  border-bottom: 3px solid #edf6f9;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+}
+
+/* Login Page */
+
+/* Signup Page */

@@ -62,8 +62,9 @@ def signup():
       
       if collection.find_one({"username": data['username']}) == None:
          collection.insert({"username" : request.form['username'],"password" : request.form['password']})
-         return redirect(url_for('login'))
+         session['username'] = data['username']
+         return redirect(url_for('questions'))
       else:
          flash(f"An account with the username \"{data.get('username')}\" already exists")
-         return redirect(url_for('login'))
+         return redirect(url_for('signup'))
    return render_template('signup.html')

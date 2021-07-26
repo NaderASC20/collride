@@ -1,31 +1,80 @@
 {% extends "base.html" %} {% block title %} Signup {% endblock title %} {% block
 content %}
-<div class="container">
-  <form action="/login/" method="POST">
-    <label for="username">Username:</label>
-    <div class="form-control">
-      <input
-        type="text"
-        name="username"
-        id="username"
-        placeholder="Please enter a username..."
-        required
-      />
-    </div>
 
-    <label for="password">Password</label>
-    <div class="form-control">
-      <input
-        type="password"
-        name="password"
-        id="password"
-        placeholder="Please enter a password..."
-        required
-      />
-    </div>
+<section class="user-form">
+  <div class="container flex">
+    <div class="card">
+      <h1 class="text-center">Signup</h1>
+      <form action="/signup" method="POST">
+        <h3 for="username">Username</h3>
+        <div class="form-control">
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Please enter a username..."
+            required
+          />
+        </div>
 
-    <input type="submit" value="submit" />
-  </form>
-</div>
+        <h3 for="password">Password</h3>
+        <div class="form-control">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Please enter a password..."
+            required
+          />
+        </div>
+
+        <h3 for="name">First Name</h3>
+        <div class="form-control">
+          <input
+            type="text"
+            name="first_name"
+            id="first_name"
+            placeholder="Please enter your first name..."
+            required
+          />
+        </div>
+
+        <h3 for="last_name">Last Name</h3>
+        <div class="form-control">
+          <input
+            type="text"
+            name="last_name"
+            id="last_name"
+            placeholder="Please enter your last name..."
+            required
+          />
+        </div>
+
+        <h3 for="email">Email</h3>
+        <div class="form-control">
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Please enter your email..."
+            required
+          />
+        </div>
+
+        <h3 for="tel">Phone Number</h3>
+        <div class="form-control">
+          <input
+            type="tel"
+            name="tel"
+            id="tel"
+            placeholder="Please enter your telephone number..."
+            required
+          />
+        </div>
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+  </div>
+</section>
 
 {% endblock content %}

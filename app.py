@@ -20,10 +20,13 @@ def index():
 
 @app.route('/questions')
 def questions():
-   if (session.get('username')):
-      username = session['username']
+   print("redirected to questions")
+   if (session.get('user')):
+      username = session['user']['username']
+      print("found user in session")
       return render_template('questions.html', username = username)
    else:
+      print("could not find user in session")
       return redirect(url_for('login'))
 
 @app.route('/trips')
@@ -44,7 +47,7 @@ def login():
          return redirect(url_for("signup"))
       user = collection.find_one({"username": data['username']})
       if (user['password'] == data['password']):
-         session['username'] = data['username']
+         session['user'] = user
          return redirect(url_for('questions'))
       else:
          return render_template('login.html', error = True)
@@ -56,13 +59,19 @@ def signup():
    collection = mongo.db.userinfo
    if (request.method == "POST"):
       data = {
-         "username" : request.form['username'],
-         "password" : request.form['password']
+         "_id": "",
+         "username": request.form['username'],
+         "password": request.form['password'],
+         "first_name": request.form['first_name'],
+         "last_name": request.form['last_name'],
+         "email": request.form['email'],
+         "tel": request.form['tel']
       }
       
       if collection.find_one({"username": data['username']}) == None:
-         collection.insert({"username" : request.form['username'],"password" : request.form['password']})
-         session['username'] = data['username']
+         collection.insert_one(data)
+         session['user'] = data
+         print("added user")
          return redirect(url_for('questions'))
       else:
          flash(f"An account with the username \"{data.get('username')}\" already exists")

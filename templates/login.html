@@ -1,33 +1,39 @@
 {% extends "base.html" %} {% block title %} Login {% endblock title %} {% block
 content %}
 
-<div class="container">
-  <form action="/login/" method="POST">
-    <label for="username">Username:</label>
-    <div class="form-control">
-      <input
-        type="text"
-        name="username"
-        id="username"
-        placeholder="Please enter a username..."
-        required
-      />
-    </div>
+<section class="user-form">
+  <div class="container flex">
+    <div class="card">
+      <h1 class="text-center">Login</h1>
+      <form action="/login/" method="POST">
+        <h3 for="username">Username</h3>
+        <div class="form-control">
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Please enter your username..."
+            required
+          />
+        </div>
 
-    <label for="password">Password</label>
-    <div class="form-control">
-      <input
-        type="password"
-        name="password"
-        id="password"
-        placeholder="Please enter a password..."
-        required
-      />
+        <h3 for="password">Password</h3>
+        <div class="form-control">
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Please enter your password..."
+            required
+          />
+        </div>
+        <input type="submit" value="Submit" />
+      </form>
+      <p class="text-center">
+        Don't have an account? Sign up <a href="/signup">here!</a>
+      </p>
     </div>
-
-    <input type="submit" value="submit" />
-  </form>
-  <p>Don't have an account? Sign up <a href="/signup">here!</a></p>
-</div>
+  </div>
+</section>
 
 {% endblock content %}

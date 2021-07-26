@@ -30,10 +30,49 @@ body {
   margin: 0 auto;
 }
 
-a {
-  text-decoration: none;
+.card {
+  background-color: #006d77;
+  color: #edf6f9;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px;
+  margin: 10px;
 }
 
+.text-center {
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: #e29578;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 5px 0;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 30px;
+  cursor: pointer;
+  background: var(--writing-color);
+  color: black;
+  border: none;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  transform: scale(1.02);
+}
+
+/* Navbar */
 .navbar {
   background-color: #006d77;
   color: #edf6f9;
@@ -68,3 +107,45 @@ a:hover {
 /* Login Page */
 
 /* Signup Page */
+.user-form {
+  height: 800px;
+}
+
+body {
+  background-color: #edf6f9;
+}
+
+.user-form form {
+  width: 100%;
+}
+
+.user-form .card {
+  width: 550px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.user-form .form-control {
+  margin-bottom: 25px;
+}
+
+.user-form input {
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.user-form input[type="submit"] {
+  display: block;
+  margin: 20px auto;
+  width: 30%;
+}
+
+.user-form input:hover {
+  transform: scale(1.06);
+}
+
+.user-form input:focus {
+  transform: scale(1);
+}

@@ -1,7 +1,8 @@
 from os import error
-from flask import render_template, request, url_for, Flask, redirect, session
+from flask import render_template, request, url_for, Flask, redirect, session, jsonify
 from flask.helpers import flash
 from flask_pymongo import PyMongo
+from pymongo import collection
 
 app = Flask(__name__)
 app.secret_key = "secret"
@@ -21,10 +22,15 @@ def index():
 @app.route('/questions')
 def questions():
    print("redirected to questions")
+   college_collection = mongo.db.NYSCollege
+   colleges = list(college_collection.find({}))
+
+   city_collection = mongo.db.NYSCities
+   cities = list(city_collection.find({}))
    if (session.get('user')):
-      username = session['user']['username']
+      user = session['user']
       print("found user in session")
-      return render_template('questions.html', username = username)
+      return render_template('questions.html', user = user, colleges = colleges, cities = cities)
    else:
       print("could not find user in session")
       return redirect(url_for('login'))
@@ -50,16 +56,16 @@ def login():
          session['user'] = user
          return redirect(url_for('questions'))
       else:
-         return render_template('login.html', error = True)
+         flash("Incorrect username/password.")
+         return render_template('login.html')
    return render_template('login.html')
 
 
 @app.route('/signup', methods=["GET", "POST"])
 def signup():
    collection = mongo.db.userinfo
-   if (request.method == "POST"):
+   if request.method == "POST":
       data = {
-         "_id": "",
          "username": request.form['username'],
          "password": request.form['password'],
          "first_name": request.form['first_name'],
@@ -69,8 +75,15 @@ def signup():
       }
       
       if collection.find_one({"username": data['username']}) == None:
-         collection.insert_one(data)
+         collection.insert({"username": request.form['username'],
+         "password": request.form['password'],
+         "first_name": request.form['first_name'],
+         "last_name": request.form['last_name'],
+         "email": request.form['email'],
+         "tel": request.form['tel']})
+
          session['user'] = data
+
          print("added user")
          return redirect(url_for('questions'))
       else:

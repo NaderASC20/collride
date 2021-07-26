@@ -1,8 +1,67 @@
 {% extends "base.html" %} {% block title %} Questions {% endblock title %} {%
 block content %}
 
-<div class="container">
-  <h1>name: {{ username }}</h1>
-</div>
+<section class="questions">
+  <div class="container">
+    <div class="card">
+      <h1 class="text-center">Set up your profile!</h1>
+      <div class="grid">
+        <form action="/trips">
+          <div class="question-div">
+            <div class="card questions">
+              <h2>What college/university are you currently attending?</h2>
+              <div class="flex">
+                <h2>I attend</h2>
+                <select autocomplete="on" name="college" id="college">
+                  {% for college in colleges %}
+                  <option value="{{ college.get('Name') }}">
+                    {{ college.get('Name') }}
+                  </option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="card questions">
+              <h2>What city is your home located in?</h2>
+              <div class="flex">
+                <h2>I live in</h2>
+                <select name="city" id="city">
+                  {% for city in cities %}
+                  <option value="{{ city.get('City') }}">
+                    {{ city.get('City') }}
+                  </option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="card questions">
+              <div class="flex">
+                <h2>Do you own a car?</h2>
+                <select name="car" id="car">
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
+                </select>
+              </div>
+            </div>
+            <input type="submit" class="text-center" value="Submit" />
+          </div>
+        </form>
+        <div class="profile text-center flex">
+          <div class="card avatar">
+            <img src="../static/images/user.png" alt="" />
+            <p>
+              Name: {{ user['first_name'].capitalize() }} {{
+              user['last_name'].capitalize() }}
+            </p>
+            <p>Username: {{ user['username'] }}</p>
+            <p>Address: {{ user['address'] }}</p>
+            <p>Email: {{ user['email'] }}</p>
+            <p>Phone Number: {{ user['tel'] }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 {% endblock content %}

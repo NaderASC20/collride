@@ -5,6 +5,11 @@
   --writing-color: #edf6f9;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -22,6 +27,11 @@ body {
   align-items: center;
 }
 
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .container {
   max-width: 1440px;
   height: 100%;
@@ -32,8 +42,8 @@ body {
 
 .card {
   background-color: #006d77;
-  color: #edf6f9;
-  border-radius: 10px;
+  color: fff;
+  border-radius: 15px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   padding: 20px;
   margin: 10px;
@@ -53,9 +63,38 @@ h2,
 h3,
 h4,
 h5,
-h6,
+h6 {
+  margin: 10px 0;
+  line-height: 1.2;
+  font-weight: bold;
+}
+
+.lead {
+  font-size: 20px;
+}
+
+.sm {
+  font-size: 1rem;
+}
+
+.md {
+  font-size: 2rem;
+}
+
+.lg {
+  font-size: 3rem;
+}
+
+.xl {
+  font-size: 4rem;
+}
+
 p {
   margin: 5px 0;
+}
+
+section {
+  padding: 40px;
 }
 
 .btn {
@@ -105,10 +144,18 @@ a:hover {
 }
 
 /* Login Page */
+.styled-input {
+  display: inline;
+  border: none;
+  padding: 5px;
+  border-radius: 8px;
+  height: 100%;
+  margin: 0 5px;
+}
 
 /* Signup Page */
 .user-form {
-  height: 800px;
+  height: 900px;
 }
 
 body {
@@ -123,6 +170,8 @@ body {
   width: 550px;
   margin: 0 auto;
   padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }
 
 .user-form .form-control {
@@ -131,7 +180,7 @@ body {
 
 .user-form input {
   border: none;
-  padding: 10px;
+  padding: 15px;
   width: 100%;
   border-radius: 8px;
 }
@@ -148,4 +197,52 @@ body {
 
 .user-form input:focus {
   transform: scale(1);
+  outline: none;
+}
+
+.user-form h3 {
+  margin: 5px 0;
+}
+
+/* Questions */
+.questions .profile {
+  flex-direction: column;
+}
+
+.questions .avatar img {
+  width: 250px;
+  height: auto;
+  margin: 10px 0;
+}
+
+.questions input[type="select"] {
+  border: none;
+  padding: 10px;
+}
+
+.questions .grid {
+  grid-template-columns: 2.5fr 1fr;
+  align-items: center;
+  gap: 30px;
+}
+
+.questions input {
+  border: none;
+  padding: 15px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.questions input[type="submit"] {
+  display: block;
+  margin: 20px auto;
+  width: 30%;
+}
+
+.questions select {
+  margin: 10 8px;
+}
+
+.questions input:hover {
+  transform: scale(1.06);
 }

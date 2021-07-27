@@ -42,7 +42,7 @@ body {
 
 .card {
   background-color: #006d77;
-  color: fff;
+  color: #fff;
   border-radius: 15px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   padding: 30px;
@@ -321,9 +321,6 @@ body {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 2.5fr;
   grid-gap: 20px;
-}
-
-.main-grid {
 }
 
 .main-grid .card {

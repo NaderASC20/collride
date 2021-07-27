@@ -276,28 +276,25 @@ body {
   height: 500px;
 }
 
-/* Carousel */
-
-* {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
+.image-facts .grid img {
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0, 0.2);
+  margin: 10px;
+  width: 680px;
 }
 
-body {
-  font-family: sans-serif;
+.image-facts .container {
+  max-width: 1550px;
+  height: 100%;
+  padding: 0 40px;
+  overflow: auto;
+  margin: 0 auto;
 }
 
-.gallery {
-  background: #eee;
+.image-facts .grid {
+  
 }
 
-.gallery-cell {
-  width: 66%;
-  height: 200px;
-  margin-right: 10px;
-  background: #8c8;
-  counter-increment: gallery-cell;
-}
 
 /* cell number */
 .gallery-cell:before {

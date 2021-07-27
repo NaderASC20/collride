@@ -157,3 +157,5 @@ def setUserColCity(user):
       session['user']['college'] = user['college']
       session['user']['city'] = user['city']
       session['user']['car'] = user['car']
+
+      

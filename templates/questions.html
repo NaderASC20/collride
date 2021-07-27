@@ -1,4 +1,4 @@
-{% extends "base.html" %} {% block title %} Questions {% endblock title %} {%
+{% extends "base.html" %} {% block title %} {% endblock title %} {%
 block content %}
 
 <section class="questions">
@@ -8,7 +8,7 @@ block content %}
       <div class="grid">
         <form action="/trips">
           <div class="question-div">
-            <div class="card questions">
+            <div class="card">
               <h2>What college/university are you currently attending?</h2>
               <div class="flex">
                 <h2>I attend</h2>
@@ -21,7 +21,7 @@ block content %}
                 </select>
               </div>
             </div>
-            <div class="card questions">
+            <div class="card">
               <h2>What city is your home located in?</h2>
               <div class="flex">
                 <h2>I live in</h2>
@@ -34,7 +34,7 @@ block content %}
                 </select>
               </div>
             </div>
-            <div class="card questions">
+            <div class="card">
               <div class="flex">
                 <h2>Do you own a car?</h2>
                 <select name="car" id="car">
@@ -43,14 +43,13 @@ block content %}
                 </select>
               </div>
             </div>
-            <input type="submit" class="text-center" value="Submit" />
           </div>
         </form>
         <div class="profile text-center flex">
           <div class="card avatar">
             <img src="../static/images/user.png" alt="" />
             <p>
-              <strong>Name:</strong> {{ user['first_name'].capitalize() }} {{
+               {{ user['first_name'].capitalize() }} {{
               user['last_name'].capitalize() }}
             </p>
             <p><strong>Username:</strong> {{ user['username'] }}</p>
@@ -60,6 +59,7 @@ block content %}
           </div>
         </div>
       </div>
+      <input type="submit" class="text-center" value="Submit" />
     </div>
   </div>
 </section>

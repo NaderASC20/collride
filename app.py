@@ -64,7 +64,7 @@ def login():
          for info in user:
             session['user'][info] = user[info]
 
-         return redirect(url_for('questions'))
+         return redirect(url_for('trips'))
       else:
          print('incorrect password')
          flash("Incorrect username/password.")

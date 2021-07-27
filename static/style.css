@@ -209,8 +209,21 @@ body {
 }
 
 /* Questions */
+
+.questions {
+  height: 720px;
+}
+
+.questions .card .avatar {
+  margin: 0;
+}
+
 .questions .profile {
   flex-direction: column;
+}
+
+.question-div .card {
+  margin-bottom: 25px;
 }
 
 .questions .avatar img {
@@ -233,7 +246,6 @@ body {
 .questions .grid {
   grid-template-columns: 2.5fr 1fr;
   align-items: center;
-  gap: 30px;
 }
 
 .questions input {

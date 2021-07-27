@@ -333,7 +333,7 @@ body {
 .answer input,
 .answer select {
   margin: 0 10px;
-}
+} 
 
 .trip-section .user-form {
   height: max-content;
@@ -394,7 +394,7 @@ body {
 }
 
 .footer nav {
-  margin: auto 150px;
+  margin: 0 auto;
   padding: 15px 4px;
 }
 

@@ -1,11 +1,55 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block title %} Trips {% endblock title %} {% block
+content %}
+<section class="trip-section">
+  <div class="container">
+    <div class="card main-card main-grid">
+      <h1 class="text-center lg">Trip Finder</h1>
+      <form action="/trips" method="POST">
+        <div class="trip-questions grid">
+          <div class="card">
+            <h1>What date would you like to leave?</h1>
+            <div class="answer flex">
+              <h1>I would like to leave on</h1>
+              <input type="date" name="date" id="date" />
+            </div>
+          </div>
+          <div class="card">
+            <h1>Where are you traveling from?</h1>
+            <div class="answer flex">
+              <h1>From</h1>
+              <select name="trip" id="trip">
+                <option value="1">
+                  From {{ session['user']['college'] }} to {{
+                  session['user']['city'] }}
+                </option>
+                <option value="2">
+                  From {{ session['user']['city'] }} to {{
+                  session['user']['college'] }}
+                </option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <input class="btn" type="submit" value="Submit" />
+      </form>
+      <h1 class="text-center md">Trips Found</h1>
+      <div class="results-grid">
+        <div class="card result">
+          <h1>Your Car</h1>
+          <h1></h1>
+        </div>
+        <div class="card result">
+          <h1>Ion's Car</h1>
+        </div>
+        <div class="card result">
+          <h1>Nader's Car</h1>
+        </div>
+        <div class="card result">
+          <h1>Emily's Car</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-
-{% block title %}
-  Trips
-{% endblock title %}
-
-
-{% block content %}
-  
 {% endblock content %}

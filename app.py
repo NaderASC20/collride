@@ -1,14 +1,12 @@
+from inspect import FullArgSpec
 from os import error
 from flask import render_template, request, url_for, Flask, redirect, session, jsonify
 from flask.helpers import flash
-from flask_pymongo import PyMongo
-from pymongo import collection
-
+from flask_pymongo import PyMongo, ObjectId
+from pymongo import collection, database
 
 app = Flask(__name__)
 app.secret_key = "secret"
-
-
 
 app.config['MONGO_DBNAME'] = 'Collride'
 app.config['MONGO_URI'] = 'mongodb+srv://admin:QBD7PhUMLLi59Fx9@cluster0.jtwfi.mongodb.net/Collride?retryWrites=true&w=majority'
@@ -22,24 +20,58 @@ def index():
     return render_template('home.html', data = data)
 
 
-@app.route('/questions')
+@app.route('/questions', methods=["GET", "POST"])
 def questions():
-   print("redirected to questions")
-   college_collection = mongo.db.NYSCollege
-   colleges = list(college_collection.find({}))
+   if (request.method == "POST"):
+      userinfo = mongo.db.userinfo
+      curr_username = session['user']['username']
+      database_user = userinfo.find_one({'username': curr_username})
 
-   city_collection = mongo.db.NYSCities
-   cities = list(city_collection.find({}))
-   if (session.get('user')):
-      user = session['user']
-      print("found user in session")
-      return render_template('questions.html', user = user, colleges = colleges, cities = cities)
+      # Add user info
+      userinfo.update_one({"username": curr_username}, {"$set": {"college": request.form['college'], "city": request.form['city']}})
+
+      if (request.form['car'] == "Yes"):
+         userinfo.update_one({"username": curr_username}, {"$set": {"car": True}})
+      else:
+         userinfo.update_one({"username": curr_username}, {"$set": {"car": False}})
+
+      print("added user info")
+
+      setUserColCity(database_user)
+
+      print("updated session user info")
+      print("updated session user info")
+      print("updated session user info")
+
+      return redirect(url_for("trips"))
+
    else:
-      print("could not find user in session")
-      return redirect(url_for('login'))
+      print("redirected to questions")
+      college_collection = mongo.db.NYSCollege
+      colleges = list(college_collection.find({}))
+
+      city_collection = mongo.db.NYSCities
+      cities = list(city_collection.find({}))
+
+      if (session.get('user')):
+         user = session['user']
+         print("found user in session")
+         return render_template('questions.html', user = user, colleges = colleges, cities = cities)
+      else:
+         print("could not find user in session")
+         return redirect(url_for('login'))
 
 @app.route('/trips')
 def trips():
+   collection = mongo.db.userinfo
+   user = collection.find_one({"username": session['user']['username']})
+   print("redirected to trips")
+   print(session)
+   print(session)
+   print(session)
+   print(session)
+   print(session)
+   setUserColCity(user)
    return render_template('trips.html')
 
 
@@ -60,9 +92,8 @@ def login():
       print(user)
       if (user['password'] == data['password']):
          print("correct password")
-
-         for info in user:
-            session['user'][info] = user[info]
+         
+         setUserColCity(user)
 
          return redirect(url_for('trips'))
       else:
@@ -81,6 +112,7 @@ def signup():
          "password": request.form['password'],
          "first_name": request.form['first_name'],
          "last_name": request.form['last_name'],
+         "address": request.form['address'],
          "email": request.form['email'],
          "tel": request.form['tel']
       }
@@ -90,6 +122,7 @@ def signup():
          "password": request.form['password'],
          "first_name": request.form['first_name'],
          "last_name": request.form['last_name'],
+         "address": request.form['address'],
          "email": request.form['email'],
          "tel": request.form['tel']})
 
@@ -97,6 +130,7 @@ def signup():
          "password": request.form['password'],
          "first_name": request.form['first_name'],
          "last_name": request.form['last_name'],
+         "address": request.form['address'],
          "email": request.form['email'],
          "tel": request.form['tel']}
 
@@ -106,3 +140,17 @@ def signup():
          flash(f"An account with the username \"{data.get('username')}\" already exists")
          return redirect(url_for('signup'))
    return render_template('signup.html')
+
+def setUserColCity(user):
+   session['user'] = {"username": user['username'],
+   "password": user['password'],
+   "first_name": user['first_name'],
+   "last_name": user['last_name'],
+   "address": user['address'],
+   "email": user['email'],
+   "tel": user['tel']}
+
+   if user['college']:
+      session['user']['college'] = user['college']
+      session['user']['city'] = user['city']
+      session['user']['car'] = user['car']

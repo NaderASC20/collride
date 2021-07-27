@@ -6,7 +6,7 @@ block content %}
     <div class="card">
       <h1 class="text-center">Set up your profile!</h1>
       <div class="grid">
-        <form action="/trips">
+        <form method="POST" action="/questions">
           <div class="question-div">
             <div class="card">
               <h2>What college/university are you currently attending?</h2>
@@ -44,12 +44,13 @@ block content %}
               </div>
             </div>
           </div>
+          <input type="submit" class="text-center" value="Submit" />
         </form>
         <div class="profile text-center flex">
           <div class="card avatar">
             <img src="../static/images/user.png" alt="" />
             <p>
-               {{ user['first_name'].capitalize() }} {{
+              <strong>Name:</strong> {{ user['first_name'].capitalize() }} {{
               user['last_name'].capitalize() }}
             </p>
             <p><strong>Username:</strong> {{ user['username'] }}</p>
@@ -59,7 +60,6 @@ block content %}
           </div>
         </div>
       </div>
-      <input type="submit" class="text-center" value="Submit" />
     </div>
   </div>
 </section>

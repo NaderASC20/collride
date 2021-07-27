@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% block title %} Signup {% endblock title %} {% block
 content %}
 
-<section class="user-form">
+<section class="user-form signup-form">
   <div class="container flex">
     <div class="card">
       <h1 class="text-center">Signup</h1>
@@ -43,6 +43,17 @@ content %}
             name="last_name"
             id="last_name"
             placeholder="Please enter your last name..."
+            required
+          />
+        </div>
+
+        <h3 for="address">Address</h3>
+        <div class="form-control">
+          <input
+            type="text"
+            name="address"
+            id="address"
+            placeholder="Please enter your address..."
             required
           />
         </div>

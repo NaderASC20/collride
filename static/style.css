@@ -45,7 +45,7 @@ body {
   color: fff;
   border-radius: 15px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-  padding: 20px;
+  padding: 30px;
   margin: 10px;
 }
 
@@ -158,6 +158,10 @@ a:hover {
   height: 900px;
 }
 
+.signup-form {
+  height: 950px;
+}
+
 .user-form {
   padding: 0px;
 }
@@ -209,10 +213,6 @@ body {
 }
 
 /* Questions */
-
-.questions {
-  height: 720px;
-}
 
 .questions .card .avatar {
   margin: 0;
@@ -269,11 +269,10 @@ body {
   transform: scale(1.06);
 }
 
-
 /* Home page */
 
 .missioninfo {
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
   height: 500px;
 }
 
@@ -284,17 +283,19 @@ body {
   box-sizing: border-box;
 }
 
-body { font-family: sans-serif; }
+body {
+  font-family: sans-serif;
+}
 
 .gallery {
-  background: #EEE;
+  background: #eee;
 }
 
 .gallery-cell {
   width: 66%;
   height: 200px;
   margin-right: 10px;
-  background: #8C8;
+  background: #8c8;
   counter-increment: gallery-cell;
 }
 
@@ -308,6 +309,58 @@ body { font-family: sans-serif; }
   color: white;
 }
 
+/* Trips Page */
+.trip-section {
+  height: 1300px;
+  padding: 80px;
+  overflow: visible;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 2.5fr;
+  grid-gap: 20px;
+}
+
+.main-grid {
+}
+
+.main-grid .card {
+  color: rgb(83, 83, 83);
+  background-color: #edf6f9;
+}
+
+.answer input,
+.answer select {
+  margin: 0 10px;
+}
+
+.trip-section .user-form {
+  height: max-content;
+}
+
+.trip-questions .card {
+  padding: 20px;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.trip-section .btn:hover {
+  transform: scale(1.06);
+}
+
+.trip-section .btn {
+  display: block;
+  margin: 0 auto;
+  margin-top: 25px;
+  background-color: #edf6f9;
+  padding: 10px 20px;
+  width: 20%;
+}
 
 /* Footer */
 
@@ -351,7 +404,8 @@ body { font-family: sans-serif; }
   margin: 10px 10px;
 }
 
-.footer h1, .footer p {
+.footer h1,
+.footer p {
   margin: 50px 100px;
   padding: 15px auto;
 }
@@ -361,5 +415,5 @@ body { font-family: sans-serif; }
 }
 
 .footer .social a {
-  transition-delay:0.3s
+  transition-delay: 0.3s;
 }

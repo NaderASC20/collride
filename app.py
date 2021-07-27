@@ -4,19 +4,22 @@ from flask.helpers import flash
 from flask_pymongo import PyMongo
 from pymongo import collection
 
+
 app = Flask(__name__)
 app.secret_key = "secret"
+
+
 
 app.config['MONGO_DBNAME'] = 'Collride'
 app.config['MONGO_URI'] = 'mongodb+srv://admin:QBD7PhUMLLi59Fx9@cluster0.jtwfi.mongodb.net/Collride?retryWrites=true&w=majority'
 mongo = PyMongo(app)
 
 @app.route('/')
-@app.route('/index')
+@app.route('/home')
 def index():
     collection = mongo.db.userinfo
     data = list(collection.find({}))
-    return render_template('base.html', data = data)
+    return render_template('home.html', data = data)
 
 
 @app.route('/questions')

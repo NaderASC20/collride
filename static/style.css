@@ -247,6 +247,48 @@ body {
   transform: scale(1.06);
 }
 
+
+/* Home page */
+
+.missioninfo {
+  background-color: #C4C4C4;
+  height: 500px;
+}
+
+/* Carousel */
+
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body { font-family: sans-serif; }
+
+.gallery {
+  background: #EEE;
+}
+
+.gallery-cell {
+  width: 66%;
+  height: 200px;
+  margin-right: 10px;
+  background: #8C8;
+  counter-increment: gallery-cell;
+}
+
+/* cell number */
+.gallery-cell:before {
+  display: block;
+  text-align: center;
+  content: counter(gallery-cell);
+  line-height: 200px;
+  font-size: 80px;
+  color: white;
+}
+
+
+
+
 /* Footer */
 
 .footer {
@@ -279,7 +321,7 @@ body {
 }
 
 .footer nav {
-  margin: auto 170px;
+  margin: auto 150px;
   padding: 15px 4px;
 }
 
@@ -295,4 +337,8 @@ body {
 
 .footer h1 {
   font-size: 3rem;
+}
+
+.footer .social a {
+  transition-delay:0.3s
 }

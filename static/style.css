@@ -158,6 +158,10 @@ a:hover {
   height: 900px;
 }
 
+.user-form {
+  padding: 0px;
+}
+
 body {
   background-color: #edf6f9;
 }
@@ -210,11 +214,17 @@ body {
 }
 
 .questions .avatar img {
-  width: 250px;
+  width: 220px;
   height: auto;
   margin: 10px 0;
+  border: 3px solid white;
+  border-radius: 120px;
+  padding: 15px;
 }
 
+.questions .avatar p {
+  line-height: 1.5;
+}
 .questions input[type="select"] {
   border: none;
   padding: 10px;
@@ -287,8 +297,6 @@ body { font-family: sans-serif; }
 }
 
 
-
-
 /* Footer */
 
 .footer {
@@ -309,6 +317,7 @@ body { font-family: sans-serif; }
 .footer a {
   text-decoration: none;
   color: #edf6f9;
+  padding: 10px;
 }
 
 .footer ul {
@@ -330,7 +339,7 @@ body { font-family: sans-serif; }
   margin: 10px 10px;
 }
 
-.footer h1, p {
+.footer h1, .footer p {
   margin: 50px 100px;
   padding: 15px auto;
 }

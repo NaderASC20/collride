@@ -51,14 +51,22 @@ def login():
          "username" : request.form['username'],
          "password" : request.form['password']
       }
-      if collection.find_one({"username": data['username']}) == None:
+      print("went to login")
+      if collection.find({"username": data['username']}) == None:
+         print("did not find user")
          flash("No account with that username exists. Please sign up to create an account.")
          return redirect(url_for("signup"))
       user = collection.find_one({"username": data['username']})
+      print(user)
       if (user['password'] == data['password']):
-         session['user'] = user
+         print("correct password")
+
+         for info in user:
+            session['user'][info] = user[info]
+
          return redirect(url_for('questions'))
       else:
+         print('incorrect password')
          flash("Incorrect username/password.")
          return render_template('login.html')
    return render_template('login.html')
@@ -85,7 +93,12 @@ def signup():
          "email": request.form['email'],
          "tel": request.form['tel']})
 
-         session['user'] = data
+         session['user'] = {"username": request.form['username'],
+         "password": request.form['password'],
+         "first_name": request.form['first_name'],
+         "last_name": request.form['last_name'],
+         "email": request.form['email'],
+         "tel": request.form['tel']}
 
          print("added user")
          return redirect(url_for('questions'))

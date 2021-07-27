@@ -50,13 +50,13 @@ block content %}
           <div class="card avatar">
             <img src="../static/images/user.png" alt="" />
             <p>
-              Name: {{ user['first_name'].capitalize() }} {{
+              <strong>Name:</strong> {{ user['first_name'].capitalize() }} {{
               user['last_name'].capitalize() }}
             </p>
-            <p>Username: {{ user['username'] }}</p>
-            <p>Address: {{ user['address'] }}</p>
-            <p>Email: {{ user['email'] }}</p>
-            <p>Phone Number: {{ user['tel'] }}</p>
+            <p><strong>Username:</strong> {{ user['username'] }}</p>
+            <p><strong>Address:</strong> {{ user['address'] }}</p>
+            <p><strong>Email:</strong> {{ user['email'] }}</p>
+            <p><strong>Phone Number:</strong> {{ user['tel'] }}</p>
           </div>
         </div>
       </div>

@@ -63,7 +63,7 @@ def questions():
 
 @app.route('/trips')
 def trips():
-   if 'user' in session:
+   if session.get('user'):
       collection = mongo.db.userinfo
       user = collection.find_one({"username": session['user']['username']})
       print("redirected to trips")
@@ -75,7 +75,8 @@ def trips():
       setUserColCity(user)
       return render_template('trips.html')
    else:
-      redirect(url_for('login'))
+      return redirect(url_for('login'))
+
 
 
 @app.route('/login/', methods=["GET", "POST"])

@@ -167,7 +167,7 @@ def setUserColCity(user):
    "email": user['email'],
    "tel": user['tel']}
 
-   if user['college']:
+   if user.get('college'):
       session['user']['college'] = user['college']
       session['user']['city'] = user['city']
       session['user']['car'] = user['car']

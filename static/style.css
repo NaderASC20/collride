@@ -389,6 +389,11 @@ body {
   animation-iteration-count: infinite;
 }
 
+
+.card i {
+  margin: 3px 5px;
+}
+
 @keyframes slidein {
   from {
     margin-left: 0%;

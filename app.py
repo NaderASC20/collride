@@ -43,6 +43,7 @@ def questions():
       print("updated session user info")
       print("updated session user info")
 
+      setUserColCity(database_user)
       return redirect(url_for("trips"))
 
    else:
@@ -72,6 +73,7 @@ def trips():
 
       collection.update_one({"username": session['user']['username']}, {"$set": {"start": start, "end": end, "date": date}})
       setUserColCity(user)
+      print(session)
 
       similar_trips = list(collection.find({"start": start, "end": end, "date": date}))
       
@@ -79,14 +81,15 @@ def trips():
          if trip.get("username") == session['user']['username']:
             similar_trips.remove(trip)
       
+      print(session)
+      user = collection.find_one({'username': session['user']['username']})
       return render_template("trips.html", user = user, similar_trips = similar_trips, request = request)
-
-   else:
+   elif request.method == "GET":
       if session.get('user'):
          user = collection.find_one({"username": session['user']['username']})
          print("redirected to trips")
          setUserColCity(user)
-         return render_template('trips.html')
+         return render_template('trips.html', user = user)
       else:
          return redirect(url_for('login'))
 

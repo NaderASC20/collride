@@ -11,14 +11,14 @@ content %}
             <h1>What date would you like to leave?</h1>
             <div class="answer flex">
               <h1>I would like to leave on</h1>
-              <input type="week" name="date" id="date" />
+              <input type="week" name="date" id="date" required/>
             </div>
           </div>
           <div class="card">
             <h1>Where are you traveling from?</h1>
             <div class="answer flex">
               <h1>From</h1>
-              <select name="start" id="start">
+              <select name="start" id="start" required>
                 <option value="{{ session['user']['college'] }}">
                   {{ session['user']['college'] }}
                 </option>
@@ -27,7 +27,7 @@ content %}
                 </option>
               </select>
               <h1>to</h1>
-              <select name="end" id="end">
+              <select name="end" id="end" required>
                 <option value="{{ session['user']['city'] }}">
                   {{ session['user']['city'] }}
                 </option>
@@ -40,8 +40,8 @@ content %}
         </div>
         <input class="btn" type="submit" value="Submit" />
       </form>
-      <h1 class="text-center md">Trips Found</h1>
       <div class="results-grid">
+        <h1 class="text-center my-3 md">Trips Found</h1>
       {% if request.method == "POST" %}
         {% if user.get('car') == true %}
         <div class="card result">
@@ -52,8 +52,9 @@ content %}
         <hr style="border: 3px dashed #fff"; class="my-2">
         {% endif %}
 
-        {% if similar_trips[0] == None %}
-          <h1>No results found. Sorry!</h1>
+        {% if similar_trips|length == 0 %}
+          <h1 class="text-center my-2 md">No results found. Sorry!</h1>
+          <img style="width: 200px; margin: 0 auto;" src="https://media.tenor.com/images/ce58ba39b66b5be181ab678d0b634743/tenor.gif" alt="" class="text-center">
         {% endif %}
 
         {% for trip in similar_trips %}
@@ -73,10 +74,7 @@ content %}
             {% endif %}
         {% endfor %}
       {% else %}
-          <h1 class="text-center my-2">Please submit the form above to see the results.</h1>
-          <div class="card result" style="width: 100%; height: 100px">
-            <img src="../static/images/car.png" alt="">
-          </div>
+          <h1 class="text-center my-1">Please submit the form above to see the results.</h1>
           <div class="card result" style="width: 100%; height: 100px">
             <img src="../static/images/car.png" alt="">
           </div>

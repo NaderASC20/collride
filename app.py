@@ -73,7 +73,7 @@ def trips():
       collection.update_one({"username": session['user']['username']}, {"$set": {"start": start, "end": end, "date": date}})
       setUserColCity(user)
 
-      similar_trips = list(collection.find({"start": start, "end": end}))
+      similar_trips = list(collection.find({"start": start, "end": end, "date": date}))
       
       for trip in similar_trips:
          if trip.get("username") == session['user']['username']:

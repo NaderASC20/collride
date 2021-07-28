@@ -97,8 +97,17 @@ section {
   padding: 40px;
 }
 
+
+.my-1 {
+  margin: 0.8rem;
+}
+
 .my-2 {
   margin: 1.5rem;
+}
+
+.my-3 {
+  margin: 2rem;
 }
 
 .btn {
@@ -300,10 +309,6 @@ body {
   margin: 0 auto;
 }
 
-.image-facts .grid {
-  
-}
-
 
 /* cell number */
 .gallery-cell:before {
@@ -326,7 +331,7 @@ body {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 2.5fr;
-  grid-gap: 20px;
+  grid-gap: 10px;
 }
 
 
@@ -352,7 +357,9 @@ body {
 .results-grid {
   display: grid;
   grid-template-columns: 1fr;
+  padding-top: 30px;
 }
+
 
 .trip-section .btn:hover {
   transform: scale(1.06);
@@ -377,7 +384,7 @@ body {
 }
 
 .result img {
-  animation-duration: 2s;
+  animation-duration: 5s;
   animation-name: slidein;
   animation-iteration-count: infinite;
 }

@@ -79,7 +79,7 @@ def trips():
          if trip.get("username") == session['user']['username']:
             similar_trips.remove(trip)
       
-      return render_template("trips.html", similar_trips = similar_trips, request = request)
+      return render_template("trips.html", user = user, similar_trips = similar_trips, request = request)
 
    else:
       if session.get('user'):

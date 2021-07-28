@@ -11,7 +11,7 @@ content %}
             <h1>What date would you like to leave?</h1>
             <div class="answer flex">
               <h1>I would like to leave on</h1>
-              <input type="date" name="date" id="date" />
+              <input type="week" name="date" id="date" />
             </div>
           </div>
           <div class="card">
@@ -43,26 +43,50 @@ content %}
       <h1 class="text-center md">Trips Found</h1>
       <div class="results-grid">
       {% if request.method == "POST" %}
+        {% if user.get('car') == true %}
+        <div class="card result">
+          <h1><i class="fas fa-car"></i>   Your Car</h1>
+          <h1>{{ user.get("start") }}  <i class="fas fa-arrow-circle-right"></i>  {{ user.get("end") }}</h1>
+          <h1>Leaving on {{ user.get("date") }}</h1>
+        </div>
+        <hr style="border: 3px dashed #fff"; class="my-2">
+        {% endif %}
+
         {% if similar_trips[0] == None %}
           <h1>No results found. Sorry!</h1>
         {% endif %}
 
         {% for trip in similar_trips %}
             {% if trip.get('car') %}
-              <div class="card result">
-                <h1><i class="fas fa-car"></i>   {{ trip.get("first_name").capitalize() }}'s Car</h1>
-                <h1>{{ trip.get("start") }}  <i class="fas fa-arrow-circle-right"></i>  {{ trip.get("end") }}</h1>
-                <h1>Leaving on {{ trip.get("date") }}</h1>
+              <div class="card result grid">
+                <div class="info">
+                  <h1><i class="fas fa-car"></i>   {{ trip.get("first_name").capitalize() }} {{ trip.get("last_name").capitalize() }}'s Car</h1>
+                  <h1>{{ trip.get("start") }}  <i class="fas fa-arrow-circle-right"></i>  {{ trip.get("end") }}</h1>
+                  <h1>Leaving on {{ trip.get("date") }}</h1>
+                </div>
+                <div class="contact">
+                  <h1>Contact {{ trip.get("first_name").capitalize() }} here</h1>
+                  <h2><i class="fas fa-mobile"></i> {{ trip.get("tel") }}</h2>
+                  <h2><i class="fas fa-envelope-square"></i> <a href="mailto:{{ trip.get("email") }}">{{ trip.get("email") }}</a></h2>
+                </div>
               </div>
             {% endif %}
         {% endfor %}
       {% else %}
           <h1 class="text-center my-2">Please submit the form above to see the results.</h1>
-          <div class="card result" style="width: 30%; height: 100px"></div>
-          <div class="card result" style="width: 60%; height: 100px"></div>
-          <div class="card result" style="width: 100%; height: 100px"></div>
-          <div class="card result" style="width: 70%; height: 100px"></div>
-          <div class="card result" style="width: 90%; height: 100px"></div>
+          <div class="card result" style="width: 100%; height: 100px">
+            <img src="../static/images/car.png" alt="">
+          </div>
+          <div class="card result" style="width: 100%; height: 100px">
+            <img src="../static/images/car.png" alt="">
+          </div>
+          <div class="card result" style="width: 100%; height: 100px">
+            <img src="../static/images/car.png" alt="">
+          </div>
+          <div class="card result" style="width: 100%; height: 100px">
+            <img src="../static/images/car.png" alt="">
+          </div>
+
       {% endif %}
 
       </div>

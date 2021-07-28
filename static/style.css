@@ -102,13 +102,18 @@ section {
 }
 
 .btn {
-  display: inline-block;
-  padding: 10px 30px;
-  cursor: pointer;
-  background: var(--writing-color);
-  color: black;
   border: none;
+  display: inline-block;
+  cursor: pointer;
   border-radius: 5px;
+  color: #fff;
+  font-size: 1.2rem;
+  font-family: "Lato";
+  font-weight: 600;
+  margin: 0 auto;
+  background-color: #FFA62B;
+  padding: 12px 20px;
+  width: 15%;
 }
 
 .btn:hover {
@@ -354,12 +359,42 @@ body {
 }
 
 .trip-section .btn {
+  color: #fff;
+  font-size: 1.3rem;
+  font-family: "Lato";
+  font-weight: 600;
   display: block;
   margin: 0 auto;
   margin-top: 25px;
-  background-color: #edf6f9;
-  padding: 10px 20px;
-  width: 20%;
+  background-color: #FFA62B;
+  padding: 15px 25px;
+  width: 15%;
+}
+
+.result img {
+  height: 100%;
+  width: auto;
+}
+
+.result img {
+  animation-duration: 2s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 0%;
+  }
+
+  to {
+    margin-left: 100%;
+  }
+}
+
+.result {
+  padding: 10px;
+  overflow: hidden;
 }
 
 /* Footer */

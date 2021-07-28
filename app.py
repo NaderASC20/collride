@@ -61,21 +61,34 @@ def questions():
          print("could not find user in session")
          return redirect(url_for('login'))
 
-@app.route('/trips')
+@app.route('/trips', methods=["GET", "POST"])
 def trips():
-   if session.get('user'):
-      collection = mongo.db.userinfo
-      user = collection.find_one({"username": session['user']['username']})
-      print("redirected to trips")
-      print(session)
-      print(session)
-      print(session)
-      print(session)
-      print(session)
+   collection = mongo.db.userinfo
+   if request.method == "POST":
+      user = collection.find_one({'username': session['user']['username']})
+      start = request.form["start"]
+      end = request.form["end"]
+      date = request.form["date"]
+
+      collection.update_one({"username": session['user']['username']}, {"$set": {"start": start, "end": end, "date": date}})
       setUserColCity(user)
-      return render_template('trips.html')
+
+      similar_trips = list(collection.find({"start": start, "end": end}))
+      
+      for trip in similar_trips:
+         if trip.get("username") == session['user']['username']:
+            similar_trips.remove(trip)
+      
+      return render_template("trips.html", similar_trips = similar_trips, request = request)
+
    else:
-      return redirect(url_for('login'))
+      if session.get('user'):
+         user = collection.find_one({"username": session['user']['username']})
+         print("redirected to trips")
+         setUserColCity(user)
+         return render_template('trips.html')
+      else:
+         return redirect(url_for('login'))
 
 
 
@@ -158,5 +171,10 @@ def setUserColCity(user):
       session['user']['college'] = user['college']
       session['user']['city'] = user['city']
       session['user']['car'] = user['car']
+
+   if user.get('start'):
+      session['user']['start'] = user['start']
+      session['user']['end'] = user['end']
+      session['user']['date'] = user['date']
 
       

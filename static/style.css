@@ -97,6 +97,10 @@ section {
   padding: 40px;
 }
 
+.my-2 {
+  margin: 1.5rem;
+}
+
 .btn {
   display: inline-block;
   padding: 10px 30px;

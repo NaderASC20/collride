@@ -18,14 +18,21 @@ content %}
             <h1>Where are you traveling from?</h1>
             <div class="answer flex">
               <h1>From</h1>
-              <select name="trip" id="trip">
-                <option value="1">
-                  From {{ session['user']['college'] }} to {{
-                  session['user']['city'] }}
+              <select name="start" id="start">
+                <option value="{{ session['user']['college'] }}">
+                  {{ session['user']['college'] }}
                 </option>
-                <option value="2">
-                  From {{ session['user']['city'] }} to {{
-                  session['user']['college'] }}
+                <option value="{{ session['user']['city'] }}">
+                  {{ session['user']['city'] }}
+                </option>
+              </select>
+              <h1>to</h1>
+              <select name="end" id="end">
+                <option value="{{ session['user']['city'] }}">
+                  {{ session['user']['city'] }}
+                </option>
+                <option value="{{ session['user']['college'] }}">
+                  {{ session['user']['college'] }}
                 </option>
               </select>
             </div>
@@ -35,19 +42,29 @@ content %}
       </form>
       <h1 class="text-center md">Trips Found</h1>
       <div class="results-grid">
-        <div class="card result">
-          <h1>Your Car</h1>
-          <h1></h1>
-        </div>
-        <div class="card result">
-          <h1>Ion's Car</h1>
-        </div>
-        <div class="card result">
-          <h1>Nader's Car</h1>
-        </div>
-        <div class="card result">
-          <h1>Emily's Car</h1>
-        </div>
+      {% if request.method == "POST" %}
+        {% if similar_trips[0] == None %}
+          <h1>No results found. Sorry!</h1>
+        {% endif %}
+
+        {% for trip in similar_trips %}
+            {% if trip.get('car') %}
+              <div class="card result">
+                <h1><i class="fas fa-car"></i>   {{ trip.get("first_name").capitalize() }}'s Car</h1>
+                <h1>{{ trip.get("start") }}  <i class="fas fa-arrow-circle-right"></i>  {{ trip.get("end") }}</h1>
+                <h1>Leaving on {{ trip.get("date") }}</h1>
+              </div>
+            {% endif %}
+        {% endfor %}
+      {% else %}
+          <h1 class="text-center my-2">Please submit the form above to see the results.</h1>
+          <div class="card result" style="width: 30%; height: 100px"></div>
+          <div class="card result" style="width: 60%; height: 100px"></div>
+          <div class="card result" style="width: 100%; height: 100px"></div>
+          <div class="card result" style="width: 70%; height: 100px"></div>
+          <div class="card result" style="width: 90%; height: 100px"></div>
+      {% endif %}
+
       </div>
     </div>
   </div>

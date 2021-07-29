@@ -1,4 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap'); 
+/* Bold */
 
 :root /* set a variable we can use latter */ {
   --navbar-foot-color: #006d77;
@@ -19,6 +21,22 @@ img {
 /* Body and Root Stuff */
 body {
   font-family: "Lato";
+}
+
+
+body select, input[type="week"]{
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1rem;
+  font-family: "Lato";
+  font-weight: 900;
+  margin: 0 auto;
+  background-color: #006d77;
+  padding: 10px 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
 .flex {
@@ -66,7 +84,8 @@ h5,
 h6 {
   margin: 10px 0;
   line-height: 1.2;
-  font-weight: 400;
+  font-weight: 500;
+  font-family: "Lato";
 }
 
 .lead {
@@ -123,6 +142,15 @@ section {
   background-color: #FFA62B;
   padding: 12px 20px;
   width: 15%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+input {
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23);
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
 }
 
 .btn:hover {
@@ -232,6 +260,11 @@ body {
 
 /* Questions */
 
+.questions .grid .card {
+  color: rgb(83, 83, 83);
+  background-color: #edf6f9;
+}
+
 .questions .card .avatar {
   margin: 0;
 }
@@ -248,7 +281,7 @@ body {
   width: 220px;
   height: auto;
   margin: 10px 0;
-  border: 3px solid white;
+  border: 3px solid black;
   border-radius: 120px;
   padding: 15px;
 }
@@ -364,9 +397,12 @@ body {
 
 /* Trips Page */
 .trip-section {
-  height: 1300px;
   padding: 80px;
-  overflow: visible;
+  overflow: auto;
+}
+
+.trip-section .container {
+  height: auto;
 }
 
 .main-grid {
@@ -396,10 +432,15 @@ body {
   padding: 20px;
 }
 
+.profile {
+  margin-top: 0.6rem;
+}
+
 .results-grid {
   display: grid;
   grid-template-columns: 1fr;
   padding-top: 30px;
+  gap: 10px;
 }
 
 
@@ -426,11 +467,10 @@ body {
 }
 
 .result img {
-  animation-duration: 5s;
+  animation-duration: 2s;
   animation-name: slidein;
   animation-iteration-count: infinite;
 }
-
 
 .card i {
   margin: 3px 5px;

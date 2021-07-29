@@ -41,7 +41,7 @@ content %}
         <input class="btn" type="submit" value="Submit" />
       </form>
       <div class="results-grid">
-        <h1 class="text-center my-3 md">Trips Found</h1>
+        <h1 class="text-center my-1 md">Trips Found</h1>
       {% if request.method == "POST" %}
         {% if user.get('car') %}
         <div class="card result">
@@ -74,7 +74,7 @@ content %}
             {% endif %}
         {% endfor %}
       {% else %}
-          <h1 class="text-center my-1">Please submit the form above to see the results.</h1>
+          <h1 class="text-center my-2">Please submit the form above to see the results.</h1>
           <div class="card result" style="width: 100%; height: 100px">
             <img src="../static/images/car.png" alt="">
           </div>

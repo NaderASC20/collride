@@ -373,6 +373,10 @@ body {
   width: 90%;
 }
 
+.werid {
+  height: 100px;
+}
+
 .image-facts .container {
   max-width: 1550px;
   height: 450px;

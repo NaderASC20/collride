@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap'); 
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap");
 /* Bold */
 
 :root /* set a variable we can use latter */ {
@@ -23,8 +23,8 @@ body {
   font-family: "Lato";
 }
 
-
-body select, input[type="week"]{
+body select,
+input[type="week"] {
   border: none;
   display: inline-block;
   cursor: pointer;
@@ -113,9 +113,8 @@ p {
 }
 
 section {
-  padding: 40px
+  padding: 40px;
 }
-
 
 .my-1 {
   margin: 0.8rem;
@@ -129,7 +128,6 @@ section {
   margin: 2rem;
 }
 
-
 .p-1 {
   padding: 1rem;
 }
@@ -142,7 +140,6 @@ section {
   padding: 2rem;
 }
 
-
 .btn {
   border: none;
   display: inline-block;
@@ -153,7 +150,7 @@ section {
   font-family: "Lato";
   font-weight: 600;
   margin: 0 auto;
-  background-color: #FFA62B;
+  background-color: #ffa62b;
   padding: 12px 20px;
   width: 15%;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
@@ -336,13 +333,13 @@ body {
 /* Home page */
 
 .missioninfo {
-  background-color: #EDF6F9;
+  background-color: #edf6f9;
   height: 200px;
   padding-bottom: 0px;
 }
 
 .missioninfo .container {
-  background-color: #C4C4C4;
+  background-color: #c4c4c4;
   align-items: center;
   justify-content: center;
 }
@@ -359,12 +356,21 @@ body {
 
 .image-facts .grid {
   grid-column-gap: 10px;
+  grid-template-columns: 1fr 1.3fr;
 }
 
 .image-facts .grid img {
   border-radius: 10px;
-  box-shadow: 0 3px 10px rgba(0,0,0, 0.2);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   margin: 10px;
+}
+
+.people-img {
+  justify-content: center;
+}
+
+.people-img img {
+  width: 90%;
 }
 
 .image-facts .container {
@@ -391,11 +397,19 @@ body {
   list-style-position: inside;
 }
 
+.feedback-cards i {
+  margin: 0 4px;
+}
+
 .image-facts li {
   margin: 5px 0;
   font-size: 1.2rem;
   font-weight: 400;
   line-height: 1.5;
+}
+
+.feedback-cards {
+  padding-bottom: 0;
 }
 
 .feedback-cards .grid {
@@ -405,35 +419,48 @@ body {
 }
 
 .feedback-cards .container {
-  height: 600px;
+  height: auto;
+  max-width: 1300px;
 }
 
 .feedback-cards .card {
+  padding: 40px;
   background-color: #edf6f9;
   color: black;
+  text-align: center;
+  height: 590px;
 }
 
+.feedback-cards .avatar {
+  width: 100px;
+  border-radius: 150px;
+  border: 2px solid #006d77;
+}
 .feedback-cards .card-lateral {
+  text-align: center;
   background-color: #edf6f9;
   color: black;
   border-radius: 15px;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-  padding: 30px;
+  padding: 40px;
   margin: 10px;
-  height: 520px;
+  height: 540px;
+}
+
+.feedback-cards p {
+  font-size: 1.2rem;
 }
 
 .feedback-cards .container .grid {
   display: flex;
   flex-direction: column;
-  grid-row-gap: 20px;
+  grid-gap: 30px;
   grid-template-columns: repeat(1fr, 3);
 }
 
-
 .bottom {
-  height: 500px;
-  
+  height: 550px;
+  padding-top: 0;
 }
 
 .bottom .grid {
@@ -448,7 +475,6 @@ body {
   text-align: center;
 }
 
-
 .bottom .btn {
   border: none;
   display: inline-block;
@@ -458,13 +484,13 @@ body {
   font-size: 2rem;
   font-family: "Lato";
   font-weight: 800;
-  background-color: #83C5BE;
+  background-color: #83c5be;
   padding: 12px 20px;
   width: 50%;
   margin-top: 30px;
 }
 
-.bottom .get-started h1{
+.bottom .get-started h1 {
   margin: 40px auto;
 }
 
@@ -495,8 +521,6 @@ body {
   grid-gap: 10px;
 }
 
-
-
 .main-grid .card {
   color: rgb(83, 83, 83);
   background-color: #edf6f9;
@@ -505,7 +529,7 @@ body {
 .answer input,
 .answer select {
   margin: 0 10px;
-} 
+}
 
 .trip-section .user-form {
   height: max-content;
@@ -526,7 +550,6 @@ body {
   gap: 10px;
 }
 
-
 .trip-section .btn:hover {
   transform: scale(1.06);
 }
@@ -539,7 +562,7 @@ body {
   display: block;
   margin: 0 auto;
   margin-top: 25px;
-  background-color: #FFA62B;
+  background-color: #ffa62b;
   padding: 15px 25px;
   width: 15%;
 }

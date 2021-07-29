@@ -1,30 +1,37 @@
-{% extends "base.html" %}
+{% extends "base.html" %} {% block title %} Home {% endblock title %} {% block
+content %}
 
-
-{% block title %}
-  Home
-{% endblock title %}
-
-
-{% block content %}
-  
 <section class="missioninfo">
-    <div class="container flex">
-        <h1 class="md">A valuable and accessible platform where college students from New York State can volunteer or find volunteers among their fellow students to share a car ride to a common destination!</h1>
-
-        
-    </div>
+  <div class="container flex">
+    <h1 class="md">
+      A valuable and accessible platform where college students from New York
+      State can volunteer or find volunteers among their fellow students to
+      share a car ride to a common destination!
+    </h1>
+  </div>
 </section>
 
 <section class="image-facts">
   <div class="container grid">
-    <img src="../static/images/car-pol1.jpeg" alt="" />
+    <div class="people-img flex">
+      <img src="../static/images/car-pol1.jpeg" alt="" />
+    </div>
     <div class="flex-col p-2">
-      <h1 class="md my-2">The best ridesharing platform for college students in NY</h1>
+      <h1 class="md my-2">
+        The best ridesharing platform for college students in NY
+      </h1>
       <ul>
-        <li>Caters to <strong>400+ colleges and universities</strong> in New York State</li>
-        <li>Easy to use, simple interface for <strong>quick trip planning</strong></li>
-        <li>Innovative <strong>"Trip Finder"</strong> features that easily connect compatible matches</li>
+        <li>
+          Caters to <strong>400+ colleges and universities</strong> in New York
+          State
+        </li>
+        <li>
+          Easy to use, simple interface for <strong>quick trip planning</strong>
+        </li>
+        <li>
+          Innovative <strong>"Trip Finder"</strong> features that easily connect
+          compatible matches
+        </li>
         <li>Caters to <strong>60+ cities</strong> in the state</li>
       </ul>
     </div>
@@ -33,31 +40,48 @@
 
 <section class="feedback-cards">
   <div class="container grid">
-      <div class="card-lateral grid flex">
-        <i class="fas fa-user-tie fa-3x"></i>
-          <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique at culpa optio incidunt saepe assumenda enim porro eligendi reprehenderit maiores alias provident, quis animi tempora officia iste beatae error dolor libero tempore. Ut facilis autem esse. Vel quis quod aspernatur iste recusandae, provident enim nihil optio nam necessitatibus maxime eveniet sequi hic facere aliquam! Impedit animi ullam nesciunt magni assumenda!
-          </p>
-        <p>Hello</p>
+    <div class="card-lateral grid flex p-3">
+      <img class="avatar" src="../static/images/guy1.jpeg" alt="" />
+      <p>
+        <i class="fas fa-quote-left"></i>Collride has saved my precious time on
+        multiple occacions! I definitely prefer using Collride and matching with
+        a new friend instead of buying expensive plain/train/bus tickets to get
+        to my needed destination. In the future, I hope to buy my own car and
+        help other students just like how they helped me. Thank you Collride!"
+      </p>
+      <div class="text">
+        <p>-Bjourn</p>
+        <i>Sophomore at Binghampton University</i>
       </div>
-      <div class="card grid flex">
-        <i class="fas fa-user-tie fa-3x"></i>
-          <p>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cupiditate laboriosam perferendis 
-              provident suscipit doloribus dolor vel, molestiae quis, ab praesentium ipsum deleniti possimus! 
-              Ducimus cum beatae necessitatibus quae distinctio earum natus veritatis voluptatibus qui quia 
-              doloribus, ullam suscipit incidunt ex temporibus odit dolor. Nam minima impedit dolorem tenetur 
-              tempora magnam autem adipisci! Quod corporis ullam necessitatibus nemo dolor! Illum, modi?
-          </p>
-        <p>Hello</p>
+    </div>
+    <div class="card grid flex p-3">
+      <img class="avatar" src="../static/images/girl1.png" alt="" />
+      <p>
+        <i class="fas fa-quote-left"></i>Collride has saved my precious time on
+        multiple occacions! I definitely prefer using Collride and matching with
+        a new friend instead of buying expensive plain/train/bus tickets to get
+        to my needed destination. In the future, I hope to buy my own car and
+        help other students just like how they helped me. Thank you Collride!"
+      </p>
+      <div class="text">
+        <p>-Ionela</p>
+        <i>Junior at SUNY Albany</i>
       </div>
-      <div class="card-lateral grid flex">
-        <i class="fas fa-user-tie fa-3x"></i>
-          <p>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum maxime distinctio blanditiis cum! Aut assumenda provident facere accusamus voluptates voluptas fuga nemo laudantium architecto iure eius eligendi officiis repellendus aspernatur, molestias debitis nesciunt distinctio soluta ullam quas dolore exercitationem illum. Numquam dolore ut doloremque molestias nostrum facilis, a placeat repudiandae omnis id veniam dignissimos nihil eaque assumenda iure unde. Numquam tempore modi laborum, praesentium corrupti autem pariatur, expedita eaque eos molestias explicabo adipisci eveniet ducimus voluptatem necessitatibus repellendus reiciendis inventore!
-          </p>
-          <p>Hello</p>
+    </div>
+    <div class="card-lateral grid flex p-3">
+      <img class="avatar" src="../static/images/guy2.jpeg" alt="" />
+      <p>
+        <i class="fas fa-quote-left"></i>Collride has saved my precious time on
+        multiple occacions! I definitely prefer using Collride and matching with
+        a new friend instead of buying expensive plain/train/bus tickets to get
+        to my needed destination. In the future, I hope to buy my own car and
+        help other students just like how they helped me. Thank you Collride!"
+      </p>
+      <div class="text">
+        <p>-Nader</p>
+        <i>Freshamn at Stony Brook University</i>
       </div>
+    </div>
   </div>
 </section>
 
@@ -67,21 +91,15 @@
       <div class="get-started flex-col">
         <h1 class="lg">What are you waiting for?</h1>
         <h1>Sign up today to begin ridesharing!</h1>
-        <a aria-current="page" href="/signup"><input class="btn" type="submit" value="Get Started" /></a>
+        <a aria-current="page" href="/signup"
+          ><input class="btn" type="submit" value="Get Started"
+        /></a>
       </div>
-      <div class="flex" style="justify-content: center;">
-        <img style="width:200px;"src="../static/images/car.png" alt="">
+      <div class="flex" style="justify-content: center">
+        <img src="../static/images/mockup.png" alt="" />
       </div>
     </div>
-
   </div>
-
 </section>
-
-
-
-
-
-
 
 {% endblock content %}

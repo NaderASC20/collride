@@ -322,10 +322,30 @@ body {
 /* Home page */
 
 .missioninfo {
-  background-color: #c4c4c4;
-  height: 500px;
+  background-color: #EDF6F9;
+  height: 200px;
+  padding-bottom: 0px;
 }
 
+.missioninfo .container {
+  background-color: #C4C4C4;
+  align-items: center;
+  justify-content: center;
+}
+
+.missioninfo h1 {
+  text-align: center;
+  margin: auto;
+  font-weight: 600;
+}
+
+.image-facts {
+  padding-top: 0px;
+}
+
+.image-facts .grid {
+  grid-column-gap: 10px;
+}
 .image-facts .grid img {
   border-radius: 10px;
   box-shadow: 0 3px 10px rgba(0,0,0, 0.2);
@@ -379,10 +399,39 @@ body {
   height: 650px;
 }
 
+.bottom .container {
+  height: 650px;
+}
+
 .bottom .grid {
   display: grid;
   grid-column-gap: 40px;
-  
+  height: 100%;
+  width: 100%;
+}
+
+.bottom .grid .get-started {
+  text-align: center;
+}
+
+
+.bottom .btn {
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 20px;
+  color: #fff;
+  font-size: 2rem;
+  font-family: "Lato";
+  font-weight: 800;
+  margin: 80px auto;
+  background-color: #83C5BE;
+  padding: 12px 20px;
+  width: 50%;
+}
+
+.bottom .get-started h1{
+  margin: 40px auto;
 }
 
 /* cell number */

@@ -68,7 +68,7 @@ content %}
                 <div class="contact">
                   <h1>Contact {{ trip.get("first_name").capitalize() }} here</h1>
                   <h2><i class="fas fa-mobile"></i> {{ trip.get("tel") }}</h2>
-                  <h2><i class="fas fa-envelope-square"></i> <a href="mailto:{{ trip.get("email") }}">{{ trip.get("email") }}</a></h2>
+                  <h2><i class="fas fa-envelope-square"></i> <a target="_blank" href="mailto:{{ trip.get("email") }}">{{ trip.get("email") }}</a></h2>
                 </div>
               </div>
             {% endif %}

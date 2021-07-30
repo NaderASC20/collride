@@ -60,6 +60,7 @@ def questions():
          return render_template('questions.html', user = user, colleges = colleges, cities = cities)
       else:
          print("could not find user in session")
+         flash("Please log in first to access profile page.")
          return redirect(url_for('login'))
 
 @app.route('/trips', methods=["GET", "POST"])
@@ -91,6 +92,7 @@ def trips():
          setUserColCity(user)
          return render_template('trips.html', user = user)
       else:
+         flash("Please log in first to access the Trip Finder.")
          return redirect(url_for('login'))
 
 

@@ -168,12 +168,13 @@ section {
 
 .flashes .ls {
   background-color: #e29578;
-  font-weight: 520;
+  font-weight: 500;
   color: #fff;
   border-radius: 15px !important;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
   padding: 20px !important;
   margin: 10px !important;
+  width: 90% !important;
 }
 
 .logout .btn {

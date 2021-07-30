@@ -1,9 +1,23 @@
 <html>
   <head>
-    <link rel="apple-touch-icon" sizes="180x180" href="../static/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="../static/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="../static/images/favicon-16x16.png">
-    <link rel="manifest" href="../static/images/site.webmanifest">
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../static/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../static/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../static/images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../static/images/site.webmanifest" />
     <script
       src="https://kit.fontawesome.com/845fc4ce79.js"
       crossorigin="anonymous"
@@ -14,7 +28,7 @@
       crossorigin="anonymous"> -->
 
     <title>{% block title %}{% endblock %}</title>
-    
+
     <link
       href="{{ url_for('static', filename='style.css') }}"
       rel="stylesheet"
@@ -43,35 +57,29 @@
       </div>
     </div>
 
-    {% with messages = get_flashed_messages() %} {% if messages %}
-    <ul class="flashes">
-      {% for message in messages %}
-      <li>{{ message }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %} {% endwith %}
+     {% block content %} {% endblock content %}
 
-    {% block content %} {% endblock content %}
-    
-    <footer class="footer ">
+    <footer class="footer">
       <div class="container grid grid-3 flex">
-          <div>
-              <h1>CollRide</h1>
-              <p>Copyright &copy; 2020 CollRide Inc.</p> <!-- &copy; - give a copy right symbol -->
-          </div>
-          <nav>
-              <ul>
-                <li><a aria-current="page" href="/login">Login</a></li>
-                <li><a aria-current="page" href="/signup">Sign up</a></li>
-                <li><a aria-current="page" href="/">Home</a></li>
-              </ul>
-          </nav>
-          <div class="social flex">
-              <a href="#"><i class="fab fa-github fa-2x"></i></a> <!-- fab - for social media icons  fa-2x(make the icon big)-->
-              <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
-              <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
-              <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
-          </div>
+        <div>
+          <h1>CollRide</h1>
+          <p>Copyright &copy; 2020 CollRide Inc.</p>
+          <!-- &copy; - give a copy right symbol -->
+        </div>
+        <nav>
+          <ul>
+            <li><a aria-current="page" href="/login">Login</a></li>
+            <li><a aria-current="page" href="/signup">Sign up</a></li>
+            <li><a aria-current="page" href="/">Home</a></li>
+          </ul>
+        </nav>
+        <div class="social flex">
+          <a href="#"><i class="fab fa-github fa-2x"></i></a>
+          <!-- fab - for social media icons  fa-2x(make the icon big)-->
+          <a href="#"><i class="fab fa-facebook fa-2x"></i></a>
+          <a href="#"><i class="fab fa-instagram fa-2x"></i></a>
+          <a href="#"><i class="fab fa-twitter fa-2x"></i></a>
+        </div>
       </div>
     </footer>
 

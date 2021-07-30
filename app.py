@@ -104,10 +104,11 @@ def login():
          "password" : request.form['password']
       }
       print("went to login")
-      if collection.find({"username": data['username']}) == None:
+      if collection.find_one({"username": data['username']}) == None:
          print("did not find user")
          flash("No account with that username exists. Please sign up to create an account.")
          return redirect(url_for("signup"))
+   
       user = collection.find_one({"username": data['username']})
       print(user)
       if (user['password'] == data['password']):
@@ -122,6 +123,21 @@ def login():
          return render_template('login.html')
    return render_template('login.html')
 
+
+@app.route('/logout')
+def logout():
+   session.clear()
+   print(session)
+   print(session)
+   print(session)
+   print(session)
+   print(session)
+   print(session)
+   print(session)
+   print(session)
+   print(session)
+   print(session)
+   return redirect(url_for('login'))
 
 @app.route('/signup', methods=["GET", "POST"])
 def signup():
@@ -179,5 +195,3 @@ def setUserColCity(user):
       session['user']['start'] = user['start']
       session['user']['end'] = user['end']
       session['user']['date'] = user['date']
-
-      

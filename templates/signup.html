@@ -5,6 +5,17 @@ content %}
   <div class="container flex">
     <div class="card">
       <h1 class="text-center">Signup</h1>
+      {% with messages = get_flashed_messages() %} {% if messages %}
+      <div class="flashes flex my-1">
+        <div class="card ls">
+          <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      {% endif %} {% endwith %}
       <form action="/signup" method="POST">
         <h3 for="username">Username</h3>
         <div class="form-control">
@@ -90,5 +101,3 @@ content %}
 </section>
 
 {% endblock content %}
-
-

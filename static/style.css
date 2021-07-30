@@ -156,6 +156,34 @@ section {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
 }
 
+/* Flashes */
+.flashes {
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.flashes ul {
+  list-style-type: none;
+}
+
+.flashes .ls {
+  background-color: #e29578;
+  font-weight: 520;
+  color: #fff;
+  border-radius: 15px !important;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+  padding: 20px !important;
+  margin: 10px !important;
+}
+
+.logout .btn {
+  width: 100%;
+}
+
+.logout .btn:hover {
+  border: none;
+}
+
 input {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.23);
 }
@@ -216,7 +244,7 @@ a:hover {
 }
 
 .signup-form {
-  height: 950px;
+  height: 1100px;
 }
 
 .user-form {

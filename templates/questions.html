@@ -1,5 +1,5 @@
-{% extends "base.html" %} {% block title %} {% endblock title %} {%
-block content %}
+{% extends "base.html" %} {% block title %} {% endblock title %} {% block
+content %}
 
 <section class="questions">
   <div class="container">
@@ -57,6 +57,9 @@ block content %}
             <p><strong>Address:</strong> {{ user['address'] }}</p>
             <p><strong>Email:</strong> {{ user['email'] }}</p>
             <p><strong>Phone Number:</strong> {{ user['tel'] }}</p>
+          </div>
+          <div class="logout my-2">
+            <a class="btn" href="/logout">Sign Out</a>
           </div>
         </div>
       </div>
